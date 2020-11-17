@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1844D88D25640C9E0045B68D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844D88C25640C9E0045B68D /* Constants.swift */; };
 		18A5D02D2563099D00A3B639 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5D02C2563099D00A3B639 /* AppDelegate.swift */; };
 		18A5D02F2563099D00A3B639 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5D02E2563099D00A3B639 /* SceneDelegate.swift */; };
 		18A5D0312563099D00A3B639 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A5D0302563099D00A3B639 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		13C4043D1D6FB4A636AA749E /* Pods_Reciplease_RecipleaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease_RecipleaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1844D88C25640C9E0045B68D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18A5D0292563099D00A3B639 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A5D02C2563099D00A3B639 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18A5D02E2563099D00A3B639 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				18A5D02E2563099D00A3B639 /* SceneDelegate.swift */,
 				18A5D0382563099F00A3B639 /* Assets.xcassets */,
 				18A5D03D2563099F00A3B639 /* Info.plist */,
+				1844D88C25640C9E0045B68D /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				18A5D0372563099D00A3B639 /* Reciplease.xcdatamodeld in Sources */,
 				18A5D0312563099D00A3B639 /* ViewController.swift in Sources */,
 				18A5D02D2563099D00A3B639 /* AppDelegate.swift in Sources */,
+				1844D88D25640C9E0045B68D /* Constants.swift in Sources */,
 				18DD6C5C256340940093ECAC /* FavoriteViewController.swift in Sources */,
 				18A5D02F2563099D00A3B639 /* SceneDelegate.swift in Sources */,
 			);
