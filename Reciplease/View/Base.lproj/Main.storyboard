@@ -8,40 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reciplease-->
-        <scene sceneID="rhD-3J-Rmr">
-            <objects>
-                <tableViewController id="g4H-Dc-NRc" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hE1-z3-cse">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Mqc-9L-lXM">
-                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mqc-9L-lXM" id="zqW-Cf-Wpe">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="g4H-Dc-NRc" id="TNe-Dq-9Tg"/>
-                            <outlet property="delegate" destination="g4H-Dc-NRc" id="eYM-iu-KWc"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Reciplease" id="1zn-Yw-fNg"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yta-jn-byn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="391" y="823"/>
-        </scene>
         <!--Favorite-->
         <scene sceneID="pKf-nD-weW">
             <objects>
                 <navigationController id="34p-cA-ZuD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorite" id="yop-Zf-h9P"/>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="star.fill" catalog="system" id="yop-Zf-h9P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aGz-JD-XYK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -51,9 +22,6 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
-                    <connections>
-                        <segue destination="g4H-Dc-NRc" kind="relationship" relationship="rootViewController" id="HyN-oi-mRr"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwO-lI-P9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +31,7 @@
         <scene sceneID="7hY-5A-vGc">
             <objects>
                 <navigationController id="3c6-bm-e0J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="srn-Lm-G0j"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="srn-Lm-G0j"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rP9-a9-WrF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -118,7 +86,6 @@
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dVj-Sz-qIL">
                                         <rect key="frame" x="19" y="58" width="285" height="229"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -220,6 +187,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
