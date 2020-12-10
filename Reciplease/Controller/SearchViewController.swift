@@ -92,7 +92,7 @@ class SearchViewController: UIViewController {
                 return
             }
             successVC.displayableRecipes = self.displayableRecipes
-            successVC.refresh = false
+            successVC.isComingFromSeachVC = true
         }
     }
 }

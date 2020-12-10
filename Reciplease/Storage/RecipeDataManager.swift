@@ -19,14 +19,14 @@ class RecipeDataManager {
     }
     
     ///Creates and saves a RecipeData entity from a DisplayableRecipe object in CoreData
-    func save(_ recipe: DisplayableRecipe) throws {
+    func save(_ displayableRecipe: DisplayableRecipe) throws {
         let recipeData = RecipeData(context: AppDelegate.viewContext)
-        recipeData.name = recipe.dishName
-        recipeData.ingredients = recipe.ingredients
-        recipeData.duration = Int16(recipe.duration)
-        recipeData.recipeURL = recipe.recipeURL
-        recipeData.yield = Int16(recipe.yield)
-        recipeData.imageData = recipe.imageData
+        recipeData.name = displayableRecipe.dishName
+        recipeData.ingredients = displayableRecipe.ingredients
+        recipeData.duration = Int16(displayableRecipe.duration)
+        recipeData.recipeURL = displayableRecipe.recipeURL
+        recipeData.yield = Int16(displayableRecipe.yield)
+        recipeData.imageData = displayableRecipe.imageData
         do { try AppDelegate.viewContext.save() } catch { throw error }
     }
 
@@ -34,7 +34,7 @@ class RecipeDataManager {
     func deleteRecipeData(withUrl url: String) throws {
         //Create a request to find RecipeData containing the given URL
         let request: NSFetchRequest<RecipeData> = RecipeData.fetchRequest()
-        request.predicate = NSPredicate(format: "url == %@", url)
+        request.predicate = NSPredicate(format: "recipeURL == %@", url)
         
         //trying to get those recipeData
         var RecipeDatasToRemove: [RecipeData]

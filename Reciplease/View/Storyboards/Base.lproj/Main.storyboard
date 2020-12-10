@@ -197,12 +197,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="umr-ul-9Gr">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="umr-ul-9Gr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpC-Ze-D14" userLabel="TopView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="DX6-pS-Din">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b8-80-EQm" customClass="UIRoundedView" customModule="Reciplease" customModuleProvider="target">
                                                 <rect key="frame" x="296.5" y="18" width="60.5" height="51"/>
                                                 <subviews>
@@ -263,11 +266,11 @@
                                                 </constraints>
                                             </view>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPe-zr-3QI" customClass="UIGradientView" customModule="Reciplease" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="117" width="375" height="53"/>
+                                                <rect key="frame" x="0.0" y="117" width="375" height="54"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-cd-o8i">
-                                                        <rect key="frame" x="147.5" y="16" width="80.5" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="135" y="16" width="105" height="22"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -280,7 +283,7 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" red="0.2156862745" green="0.20000000000000001" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="opacity">
                                                         <integer key="value" value="1"/>
@@ -290,9 +293,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="DX6-pS-Din">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>

@@ -9,8 +9,33 @@ import UIKit
 
 class RecipeTableViewController: UITableViewController {
     var displayableRecipes: [DisplayableRecipe] = []
-    var refresh: Bool = true
+    var isComingFromSeachVC: Bool = false
+
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if !isComingFromSeachVC && displayableRecipes == [] {
+            let recipesData: [RecipeData] = RecipeDataManager.all
+            for recipeData in recipesData {
+                let displayableRecipe = DisplayableRecipe(
+                    imageData: recipeData.imageData ?? UIImage(named: "foodImage")!.pngData()!,
+                    imageURL: recipeData.imageURL ?? "",
+                    recipeURL: recipeData.recipeURL ?? "",
+                    dishName: recipeData.name ?? "",
+                    yield: Double(recipeData.yield),
+                    duration: Int(recipeData.duration),
+                    ingredients: recipeData.ingredients ?? []
+                )
+                displayableRecipes.append(displayableRecipe)
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
