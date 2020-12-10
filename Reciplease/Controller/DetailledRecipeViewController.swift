@@ -44,7 +44,7 @@ class DetailledRecipeViewController: UIViewController {
     
     @IBAction func addOrRemoveRecipeFromFavorite(_ sender: UIBarButtonItem) {
         return sender.image == UIImage(systemName: "star.fill") ?
-            addRecipeToFavorite() : removeRecipeFromFavorite()
+            removeRecipeFromFavorite() : addRecipeToFavorite()
     }
     
     private func fetchRecipeDataToUI() {
