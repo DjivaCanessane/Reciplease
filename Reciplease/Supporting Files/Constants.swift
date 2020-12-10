@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Cosntants {
+struct Constants {
     struct Id {
         static let edamamId: String = "6b30bcd2"
     }
