@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5yC-sP-yQR">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,7 +14,7 @@
                 <navigationController id="34p-cA-ZuD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorite" image="star.fill" catalog="system" id="yop-Zf-h9P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aGz-JD-XYK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2156862745" green="0.20000000000000001" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -35,26 +35,26 @@
             <objects>
                 <tableViewController id="rAh-qS-ZVE" customClass="RecipeTableViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6AS-2L-7fN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="160" id="gA2-wB-n65" customClass="RecipeTableViewCell" customModule="Reciplease" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gA2-wB-n65" id="VhH-zs-0HD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="A2s-Ev-TZO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                         </imageView>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVL-LQ-0NK" customClass="UIGradientView" customModule="Reciplease" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="106.5" width="375" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="106.5" width="320" height="53.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="EjA-iF-5Ko">
-                                                    <rect key="frame" x="8" y="8" width="359" height="41"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnD-8I-H4E">
                                                             <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
@@ -91,7 +91,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-tn-NHe" customClass="UIRoundedView" customModule="Reciplease" customModuleProvider="target">
-                                            <rect key="frame" x="296.5" y="18" width="60.5" height="51"/>
+                                            <rect key="frame" x="241.5" y="18" width="60.5" height="51"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Piy-or-FP9" customClass="UIRoundedView" customModule="Reciplease" customModuleProvider="target">
                                                     <rect key="frame" x="1" y="1" width="58.5" height="49"/>
@@ -194,20 +194,20 @@
             <objects>
                 <viewController id="t19-aX-scZ" customClass="DetailledRecipeViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1UC-zj-6Mz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="umr-ul-9Gr">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GpC-Ze-D14" userLabel="TopView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodImage" translatesAutoresizingMaskIntoConstraints="NO" id="DX6-pS-Din">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b8-80-EQm" customClass="UIRoundedView" customModule="Reciplease" customModuleProvider="target">
-                                                <rect key="frame" x="296.5" y="18" width="60.5" height="51"/>
+                                                <rect key="frame" x="241.5" y="18" width="60.5" height="51"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oii-CT-4mf" customClass="UIRoundedView" customModule="Reciplease" customModuleProvider="target">
                                                         <rect key="frame" x="1" y="1" width="58.5" height="49"/>
@@ -266,10 +266,10 @@
                                                 </constraints>
                                             </view>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPe-zr-3QI" customClass="UIGradientView" customModule="Reciplease" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="117" width="375" height="54"/>
+                                                <rect key="frame" x="0.0" y="117" width="320" height="54"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-cd-o8i">
-                                                        <rect key="frame" x="135" y="16" width="105" height="22"/>
+                                                        <rect key="frame" x="107.5" y="16" width="105" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -309,7 +309,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzU-B0-Xv0" userLabel="BottomView">
-                                        <rect key="frame" x="0.0" y="171" width="375" height="403"/>
+                                        <rect key="frame" x="0.0" y="171" width="320" height="304"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itK-1C-PlA">
                                                 <rect key="frame" x="8" y="8" width="118.5" height="21.5"/>
@@ -318,14 +318,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gO-hC-tK0">
-                                                <rect key="frame" x="8" y="47.5" width="359" height="305.5"/>
+                                                <rect key="frame" x="8" y="47.5" width="304" height="206.5"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O21-Lx-oEZ" customClass="UIRoundedButton" customModule="Reciplease" customModuleProvider="target">
-                                                <rect key="frame" x="139" y="373" width="97" height="30"/>
-                                                <state key="normal" title="Get directions"/>
+                                                <rect key="frame" x="40" y="262" width="240" height="42"/>
+                                                <color key="backgroundColor" red="0.2666666667" green="0.58039215690000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="UOp-14-Qyt"/>
+                                                    <constraint firstAttribute="height" constant="42" id="ed5-UC-0Or"/>
+                                                </constraints>
+                                                <state key="normal" title="Get directions">
+                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="getDirectionsForRecipe:" destination="t19-aX-scZ" eventType="touchUpInside" id="hNG-Lj-hGh"/>
                                                 </connections>
@@ -334,12 +341,12 @@
                                         <color key="backgroundColor" red="0.2156862745" green="0.20000000000000001" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="9gO-hC-tK0" firstAttribute="top" secondItem="itK-1C-PlA" secondAttribute="bottom" constant="18" id="0Xe-Aq-uKs"/>
-                                            <constraint firstItem="O21-Lx-oEZ" firstAttribute="top" secondItem="9gO-hC-tK0" secondAttribute="bottom" constant="20" id="12d-Uz-22X"/>
                                             <constraint firstItem="itK-1C-PlA" firstAttribute="leading" secondItem="hzU-B0-Xv0" secondAttribute="leading" constant="8" id="1lv-An-gpH"/>
-                                            <constraint firstItem="O21-Lx-oEZ" firstAttribute="centerX" secondItem="hzU-B0-Xv0" secondAttribute="centerX" id="Tpy-eO-moQ"/>
+                                            <constraint firstItem="O21-Lx-oEZ" firstAttribute="top" secondItem="9gO-hC-tK0" secondAttribute="bottom" constant="8" id="CrW-Gk-rL1"/>
                                             <constraint firstItem="itK-1C-PlA" firstAttribute="top" secondItem="hzU-B0-Xv0" secondAttribute="top" constant="8" id="TyN-8O-kQG"/>
+                                            <constraint firstAttribute="bottom" secondItem="O21-Lx-oEZ" secondAttribute="bottom" id="c5D-rv-YZu"/>
+                                            <constraint firstItem="O21-Lx-oEZ" firstAttribute="centerX" secondItem="hzU-B0-Xv0" secondAttribute="centerX" id="fS1-SX-4fI"/>
                                             <constraint firstAttribute="trailing" secondItem="9gO-hC-tK0" secondAttribute="trailing" constant="8" id="tOy-35-kom"/>
-                                            <constraint firstAttribute="bottom" secondItem="O21-Lx-oEZ" secondAttribute="bottom" id="tgj-H7-Mgd"/>
                                             <constraint firstItem="9gO-hC-tK0" firstAttribute="leading" secondItem="hzU-B0-Xv0" secondAttribute="leading" constant="8" id="vCr-s5-ucM"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="itK-1C-PlA" secondAttribute="trailing" constant="20" symbolic="YES" id="wui-su-mJw"/>
                                         </constraints>
@@ -386,7 +393,7 @@
                 <navigationController id="3c6-bm-e0J" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="srn-Lm-G0j"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rP9-a9-WrF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2156862745" green="0.20000000000000001" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -407,22 +414,22 @@
             <objects>
                 <viewController id="NJ6-Gb-IM1" customClass="SearchViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gak-DZ-Fh3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's in your fridge ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN9-X1-ZjH">
-                                <rect key="frame" x="8" y="16" width="359" height="21"/>
+                                <rect key="frame" x="8" y="16" width="304" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.2156862745" green="0.20000000000000001" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lemon, Cheese, Sausages..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULF-0H-bHb">
-                                <rect key="frame" x="16" y="45" width="269" height="34"/>
+                                <rect key="frame" x="16" y="45" width="214" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsN-z4-g0N" customClass="UIRoundedButton" customModule="Reciplease" customModuleProvider="target">
-                                <rect key="frame" x="301" y="47" width="58" height="30"/>
+                                <rect key="frame" x="246" y="47" width="58" height="30"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.58039215690000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="lI5-G5-xq3"/>
@@ -435,10 +442,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Owc-G9-4z4">
-                                <rect key="frame" x="0.0" y="109" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="366"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dVj-Sz-qIL">
-                                        <rect key="frame" x="19" y="58" width="340" height="328"/>
+                                        <rect key="frame" x="19" y="58" width="285" height="229"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -450,7 +457,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccY-oX-e8y" customClass="UIRoundedButton" customModule="Reciplease" customModuleProvider="target">
-                                        <rect key="frame" x="246" y="11" width="113" height="30"/>
+                                        <rect key="frame" x="246" y="11" width="58" height="30"/>
                                         <color key="backgroundColor" red="0.53725490200000003" green="0.54117647059999996" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Clear">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -460,7 +467,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnR-Wx-WjL" customClass="UIRoundedButton" customModule="Reciplease" customModuleProvider="target">
-                                        <rect key="frame" x="47.5" y="400" width="280" height="45"/>
+                                        <rect key="frame" x="47.5" y="301" width="225" height="45"/>
                                         <color key="backgroundColor" red="0.2666666667" green="0.58039215690000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="IR1-As-wLQ"/>
