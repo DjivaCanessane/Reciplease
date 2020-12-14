@@ -478,7 +478,6 @@
                                         </state>
                                         <connections>
                                             <action selector="searchRecipes:" destination="NJ6-Gb-IM1" eventType="touchUpInside" id="YDQ-wI-qvh"/>
-                                            <segue destination="rAh-qS-ZVE" kind="show" identifier="segueToNetworkResult" id="nQ7-Ze-Maw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -520,6 +519,7 @@
                     <connections>
                         <outlet property="ingredientTextField" destination="ULF-0H-bHb" id="gRK-cF-tyY"/>
                         <outlet property="ingredientsTextView" destination="dVj-Sz-qIL" id="zHW-v9-J7n"/>
+                        <segue destination="rAh-qS-ZVE" kind="show" identifier="segueToNetworkResult" id="zW5-nK-z1u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saX-EY-Rwf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -548,7 +548,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nQ7-Ze-Maw"/>
+        <segue reference="zW5-nK-z1u"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="clock" catalog="system" width="128" height="121"/>

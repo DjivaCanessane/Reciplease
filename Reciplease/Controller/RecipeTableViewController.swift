@@ -10,13 +10,23 @@ import UIKit
 class RecipeTableViewController: UITableViewController {
     var displayableRecipes: [DisplayableRecipe] = []
     var isComingFromSeachVC: Bool = false
-
+    let recipeDataManager = ServiceContainer.recipeDataManager
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if !isComingFromSeachVC && displayableRecipes == [] {
-            let recipesData: [RecipeData] = RecipeDataManager.all
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        loadData()
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
+    
+    private func loadData() {
+        if  !isComingFromSeachVC {
+            let recipesData: [RecipeData] = recipeDataManager.all
+            displayableRecipes = []
             for recipeData in recipesData {
                 let displayableRecipe = DisplayableRecipe(
                     imageData: recipeData.imageData ?? UIImage(named: "foodImage")!.pngData()!,
@@ -30,10 +40,6 @@ class RecipeTableViewController: UITableViewController {
                 displayableRecipes.append(displayableRecipe)
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.tableView.reloadData()
     }
     // MARK: - Table view data source

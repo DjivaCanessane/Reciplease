@@ -11,5 +11,6 @@ struct ServiceContainer {
     static let alertManager = AlertManager()
     static let recipeQueryNetworkManager = RecipesQueryNetworkManager()
     static let recipeImageNetworkManager = RecipeImageNetworkManager()
-    static let recipeDataManager = RecipeDataManager()
+    static let recipeCoreDataStack = RecipeCoreDataStack(modelName: "Reciplease")
+    static let recipeDataManager = RecipeDataManager(recipeCoreDataStack: recipeCoreDataStack)
 }

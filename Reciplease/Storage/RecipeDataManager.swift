@@ -9,25 +9,39 @@ import Foundation
 import CoreData
 
 class RecipeDataManager {
+    // MARK: - Properties
+
+    private let recipeCoreDataStack: RecipeCoreDataStack
+    private let managedObjectContext: NSManagedObjectContext
+    
     ///Returns an array containing every RecipeData object saved in CoreData
-    static var all: [RecipeData] {
+    var all: [RecipeData] {
         let request: NSFetchRequest<RecipeData> = RecipeData.fetchRequest()
-        guard let recipeDatas = try? AppDelegate.viewContext.fetch(request) else {
+        guard let recipeDatas = try? managedObjectContext.fetch(request) else {
             return []
         }
         return recipeDatas
     }
+
+    // MARK: - Initializer
+
+    init(recipeCoreDataStack: RecipeCoreDataStack) {
+        self.recipeCoreDataStack = recipeCoreDataStack
+        self.managedObjectContext = recipeCoreDataStack.viewContext
+    }
+    
+    // MARK: - Manage Task Entity
     
     ///Creates and saves a RecipeData entity from a DisplayableRecipe object in CoreData
     func save(_ displayableRecipe: DisplayableRecipe) throws {
-        let recipeData = RecipeData(context: AppDelegate.viewContext)
+        let recipeData = RecipeData(context: managedObjectContext)
         recipeData.name = displayableRecipe.dishName
         recipeData.ingredients = displayableRecipe.ingredients
         recipeData.duration = Int16(displayableRecipe.duration)
         recipeData.recipeURL = displayableRecipe.recipeURL
         recipeData.yield = Int16(displayableRecipe.yield)
         recipeData.imageData = displayableRecipe.imageData
-        do { try AppDelegate.viewContext.save() } catch { throw error }
+        do { try managedObjectContext.save() } catch { throw error }
     }
 
     ///Removes a specific RecipeData with the given url from Core Data
@@ -38,11 +52,11 @@ class RecipeDataManager {
         
         //trying to get those recipeData
         var RecipeDatasToRemove: [RecipeData]
-        do { RecipeDatasToRemove = try AppDelegate.viewContext.fetch(request) } catch { throw error }
+        do { RecipeDatasToRemove = try managedObjectContext.fetch(request) } catch { throw error }
         
         //If there are such recipeData, we delete them
-        RecipeDatasToRemove.forEach { AppDelegate.viewContext.delete($0) }
-        do { try AppDelegate.viewContext.save() } catch { throw error }
+        RecipeDatasToRemove.forEach { managedObjectContext.delete($0) }
+        do { try managedObjectContext.save() } catch { throw error }
     }
 
     ///Returns a Bool whether the Recipe is favorite according to its presence or not in CoreData
@@ -56,7 +70,7 @@ class RecipeDataManager {
         
         //Trying to get those recipes
         var recipeDatas: [RecipeData] = []
-        do { recipeDatas = try AppDelegate.viewContext.fetch(request)
+        do { recipeDatas = try managedObjectContext.fetch(request)
         } catch { throw error }
         
         //Return wheather or no the recipe is favorite
