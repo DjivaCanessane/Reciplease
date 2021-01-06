@@ -11,13 +11,12 @@ import CoreData
 class RecipeDataManager {
     // MARK: - Properties
 
-    private let recipeCoreDataStack: RecipeCoreDataStack
-    private let managedObjectContext: NSManagedObjectContext
+    private let context: ContextProvider
     
     ///Returns an array containing every RecipeData object saved in CoreData
     var all: [RecipeData] {
         let request: NSFetchRequest<RecipeData> = RecipeData.fetchRequest()
-        guard let recipeDatas = try? managedObjectContext.fetch(request) else {
+        guard let recipeDatas = try? context.fetch(request) else {
             return []
         }
         return recipeDatas
@@ -25,23 +24,23 @@ class RecipeDataManager {
 
     // MARK: - Initializer
 
-    init(recipeCoreDataStack: RecipeCoreDataStack) {
-        self.recipeCoreDataStack = recipeCoreDataStack
-        self.managedObjectContext = recipeCoreDataStack.viewContext
+    init(contextProvider: ContextProvider) {
+        self.context = contextProvider
     }
     
     // MARK: - Manage Task Entity
     
     ///Creates and saves a RecipeData entity from a DisplayableRecipe object in CoreData
     func save(_ displayableRecipe: DisplayableRecipe) throws {
-        let recipeData = RecipeData(context: managedObjectContext)
+        let recipeData = RecipeData(context: context.managedObjectContext)
         recipeData.name = displayableRecipe.dishName
+        recipeData.imageURL = displayableRecipe.imageURL
         recipeData.ingredients = displayableRecipe.ingredients
         recipeData.duration = Int16(displayableRecipe.duration)
         recipeData.recipeURL = displayableRecipe.recipeURL
         recipeData.yield = Int16(displayableRecipe.yield)
         recipeData.imageData = displayableRecipe.imageData
-        do { try managedObjectContext.save() } catch { throw error }
+        do { try context.save() } catch { throw CoreDataError.saveError }
     }
 
     ///Removes a specific RecipeData with the given url from Core Data
@@ -49,14 +48,15 @@ class RecipeDataManager {
         //Create a request to find RecipeData containing the given URL
         let request: NSFetchRequest<RecipeData> = RecipeData.fetchRequest()
         request.predicate = NSPredicate(format: "recipeURL == %@", url)
-        
+
         //trying to get those recipeData
-        var RecipeDatasToRemove: [RecipeData]
-        do { RecipeDatasToRemove = try managedObjectContext.fetch(request) } catch { throw error }
-        
+        var recipeDatasToRemove: [RecipeData]
+        do { recipeDatasToRemove = try context.fetch(request) } catch { throw CoreDataError.fetchError }
+
         //If there are such recipeData, we delete them
-        RecipeDatasToRemove.forEach { managedObjectContext.delete($0) }
-        do { try managedObjectContext.save() } catch { throw error }
+        guard recipeDatasToRemove != [] else { throw CoreDataError.nothingToDelete }
+        recipeDatasToRemove.forEach { context.delete($0) }
+        do { try context.save() } catch { throw CoreDataError.saveError }
     }
 
     ///Returns a Bool whether the Recipe is favorite according to its presence or not in CoreData
@@ -70,8 +70,8 @@ class RecipeDataManager {
         
         //Trying to get those recipes
         var recipeDatas: [RecipeData] = []
-        do { recipeDatas = try managedObjectContext.fetch(request)
-        } catch { throw error }
+        do { recipeDatas = try context.fetch(request)
+        } catch { throw CoreDataError.fetchError }
         
         //Return wheather or no the recipe is favorite
         return recipeDatas.isEmpty ? false : true

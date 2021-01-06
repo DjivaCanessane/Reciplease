@@ -2,11 +2,10 @@
 //  RecipleaseTests.swift
 //  RecipleaseTests
 //
-//  Created by Djiveradjane Canessane on 16/11/2020.
+//  Created by Djiveradjane Canessane on 16/12/2020.
 //
 
 import XCTest
-@testable import Reciplease
 
 class RecipleaseTests: XCTestCase {
 
@@ -25,7 +24,7 @@ class RecipleaseTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }

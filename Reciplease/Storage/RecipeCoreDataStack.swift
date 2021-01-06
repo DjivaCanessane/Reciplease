@@ -15,13 +15,13 @@ class RecipeCoreDataStack {
 
     // MARK: - Initializer
 
-    public init(modelName: String) {
+    init(modelName: String) {
         self.modelName = modelName
     }
 
     // MARK: - Core Data stack
 
-    public lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: modelName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -31,11 +31,11 @@ class RecipeCoreDataStack {
         return container
     }()
 
-    public lazy var viewContext: NSManagedObjectContext = {
+    lazy var viewContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
 
-    public func saveContext() {
+    func saveContext() {
         guard viewContext.hasChanges else { return }
         do {
             try viewContext.save()

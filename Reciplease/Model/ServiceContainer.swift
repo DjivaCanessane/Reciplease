@@ -12,5 +12,6 @@ struct ServiceContainer {
     static let recipeQueryNetworkManager = RecipesQueryNetworkManager()
     static let recipeImageNetworkManager = RecipeImageNetworkManager()
     static let recipeCoreDataStack = RecipeCoreDataStack(modelName: "Reciplease")
-    static let recipeDataManager = RecipeDataManager(recipeCoreDataStack: recipeCoreDataStack)
+    static let recipeManagedObjectContext = RecipeManagedObjectContext(context: recipeCoreDataStack.viewContext)
+    static let recipeDataManager = RecipeDataManager(contextProvider: recipeManagedObjectContext)
 }
