@@ -10,7 +10,6 @@ import Foundation
 enum CoreDataError: Error {
     case fetchError
     case saveError
-    case nothingToDelete
 }
 
 extension CoreDataError: LocalizedError {
@@ -20,8 +19,6 @@ extension CoreDataError: LocalizedError {
             return "Can not fetch data."
         case .saveError:
             return "Can not save."
-        case .nothingToDelete:
-            return "This URL do not refers to a saved recipe."
         }
     }
 }

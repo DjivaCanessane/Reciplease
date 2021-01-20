@@ -140,8 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				181CE941258A4DBD00121A97 /* MockCoreDataStack.swift */,
-				181CE96F258A50CF00121A97 /* TestCoreData.swift */,
 				18B143CE258C288C0020E901 /* MockContextProviderStub.swift */,
+				181CE96F258A50CF00121A97 /* TestCoreData.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";

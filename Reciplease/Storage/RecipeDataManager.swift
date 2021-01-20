@@ -53,8 +53,7 @@ class RecipeDataManager {
         var recipeDatasToRemove: [RecipeData]
         do { recipeDatasToRemove = try context.fetch(request) } catch { throw CoreDataError.fetchError }
 
-        //If there are such recipeData, we delete them
-        guard recipeDatasToRemove != [] else { throw CoreDataError.nothingToDelete }
+        //we delete them
         recipeDatasToRemove.forEach { context.delete($0) }
         do { try context.save() } catch { throw CoreDataError.saveError }
     }
