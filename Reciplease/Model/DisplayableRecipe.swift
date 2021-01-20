@@ -8,7 +8,7 @@
 import Foundation
 
 struct DisplayableRecipe: Equatable {
-    let imageData: Data
+    var imageData: Data
     let imageURL: String
     let recipeURL: String
     let dishName: String

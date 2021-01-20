@@ -10,7 +10,8 @@ import Foundation
 enum NetworkError: Error {
     case hasError
     case emptyData
-    case imageError
+    case decodingError
+    case noIngredients
 }
 
 extension NetworkError: LocalizedError {
@@ -20,8 +21,10 @@ extension NetworkError: LocalizedError {
             return "Contains an error."
         case .emptyData:
             return "There is no data."
-        case .imageError:
-            return "Error when requestiing image data."
+        case .decodingError:
+            return "Can not decode data."
+        case .noIngredients:
+            return "Please enter some indredient before searching."
         }
     }
 }
