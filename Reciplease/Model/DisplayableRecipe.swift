@@ -13,6 +13,6 @@ struct DisplayableRecipe: Equatable {
     let recipeURL: String
     let dishName: String
     let yield: Double
-    let duration: Int
+    let duration: Float
     let ingredients: [String]
 }

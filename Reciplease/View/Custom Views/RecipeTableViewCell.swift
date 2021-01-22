@@ -26,6 +26,8 @@ class RecipeTableViewCell: UITableViewCell {
     }
     
     func configure(with recipe: DisplayableRecipe) {
+        let durationStr = recipe.duration == 0 ? "N/A" : "\(recipe.duration)"
+        let yieldStr = recipe.yield == 0 ? "N/A" : "\(recipe.yield)"
         recipeImage.image = UIImage(data: recipe.imageData)
         recipeLabel.text = recipe.dishName
         
@@ -37,8 +39,8 @@ class RecipeTableViewCell: UITableViewCell {
             return ingredients
         }
         ingredientsLabel.text = ingredients
-        durationLabel.text = "\(recipe.duration)"
-        yieldLabel.text = "\(recipe.yield)"
+        durationLabel.text = durationStr
+        yieldLabel.text = yieldStr
     }
 
 }

@@ -84,6 +84,8 @@ class RecipesQueryNetworkManager {
             string: rawURL
         )!
         queryUrl.queryItems?.append(URLQueryItem(name: "q", value: ingredientsStrList))
+        queryUrl.queryItems?.append(URLQueryItem(name: "from", value: "0"))
+        queryUrl.queryItems?.append(URLQueryItem(name: "to", value: "100"))
         return queryUrl.url!
     }
 }
