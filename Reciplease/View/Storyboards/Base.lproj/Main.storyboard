@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5yC-sP-yQR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5yC-sP-yQR">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -186,6 +186,12 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L31-m7-fxm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="UzA-F1-1uL">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="tFS-n0-zqb"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="385.50724637681162" y="822.32142857142856"/>
         </scene>
@@ -268,8 +274,8 @@
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPe-zr-3QI" customClass="UIGradientView" customModule="Reciplease" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="117" width="320" height="54"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-cd-o8i">
-                                                        <rect key="frame" x="107.5" y="16" width="105" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dish name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMc-cd-o8i">
+                                                        <rect key="frame" x="8" y="16" width="304" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -277,8 +283,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="VMc-cd-o8i" firstAttribute="centerX" secondItem="iPe-zr-3QI" secondAttribute="centerX" id="a0B-pD-MEf"/>
-                                                    <constraint firstItem="VMc-cd-o8i" firstAttribute="centerY" secondItem="iPe-zr-3QI" secondAttribute="centerY" id="kbN-ps-AIn"/>
+                                                    <constraint firstAttribute="bottom" secondItem="VMc-cd-o8i" secondAttribute="bottom" constant="16" id="CyE-IB-SIF"/>
+                                                    <constraint firstItem="VMc-cd-o8i" firstAttribute="leading" secondItem="iPe-zr-3QI" secondAttribute="leading" constant="8" id="FfA-jv-tLI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VMc-cd-o8i" secondAttribute="trailing" constant="8" id="OeT-Qh-eWb"/>
+                                                    <constraint firstItem="VMc-cd-o8i" firstAttribute="top" secondItem="iPe-zr-3QI" secondAttribute="top" constant="16" id="VPv-x6-LcV"/>
                                                     <constraint firstItem="VMc-cd-o8i" firstAttribute="top" secondItem="iPe-zr-3QI" secondAttribute="top" constant="15.999999999999998" id="v9e-7X-D3d"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -303,6 +311,7 @@
                                             <constraint firstItem="DX6-pS-Din" firstAttribute="bottom" secondItem="iPe-zr-3QI" secondAttribute="bottom" id="Iuu-f0-2rV"/>
                                             <constraint firstItem="DX6-pS-Din" firstAttribute="leading" secondItem="iPe-zr-3QI" secondAttribute="leading" id="cks-05-Sh4"/>
                                             <constraint firstAttribute="trailing" secondItem="9b8-80-EQm" secondAttribute="trailing" constant="18" id="fxt-GL-4bv"/>
+                                            <constraint firstItem="VMc-cd-o8i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DX6-pS-Din" secondAttribute="top" id="jrz-s2-8SM"/>
                                             <constraint firstAttribute="bottom" secondItem="iPe-zr-3QI" secondAttribute="bottom" id="l9l-Ar-7vj"/>
                                             <constraint firstItem="iPe-zr-3QI" firstAttribute="top" secondItem="GpC-Ze-D14" secondAttribute="top" constant="117" id="lij-da-loM"/>
                                             <constraint firstAttribute="trailing" secondItem="iPe-zr-3QI" secondAttribute="trailing" id="tlB-sg-2tC"/>
