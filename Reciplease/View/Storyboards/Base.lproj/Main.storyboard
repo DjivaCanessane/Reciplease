@@ -186,12 +186,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L31-m7-fxm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="UzA-F1-1uL">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <viewLayoutGuide key="safeArea" id="tFS-n0-zqb"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="385.50724637681162" y="822.32142857142856"/>
         </scene>

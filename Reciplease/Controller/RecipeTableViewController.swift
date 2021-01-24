@@ -36,8 +36,18 @@ class RecipeTableViewController: UITableViewController {
     private func loadData() {
         //if isComingFromSeachVC = false, then fetch favorites recipesdata from CoreData
         if !isComingFromSeachVC {
+            //Add the spinner view controller
+            let child = SpinnerViewController()
+            addChild(child)
+            child.view.frame = view.frame
+            view.addSubview(child.view)
+            child.didMove(toParent: self)
+
+            //Disable empty message
             self.tableView.backgroundView = nil
             self.tableView.separatorStyle = .singleLine
+
+            //Fetch Data from CoreData
             let recipesData: [RecipeData] = recipeDataManager.all
             displayableRecipes = []
             for recipeData in recipesData {
@@ -52,15 +62,16 @@ class RecipeTableViewController: UITableViewController {
                 )
                 displayableRecipes.append(displayableRecipe)
             }
-            
+
+            //Remove the spinner view controller
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
         }
+
         //show error when diplayableRecipes is empty
-        guard !displayableRecipes.isEmpty else {
-            return showEmptyMessage()
-        }
+        guard !displayableRecipes.isEmpty else { return showEmptyMessage() }
         self.tableView.reloadData()
-        
-        
     }
     // MARK: - Table view data source
     

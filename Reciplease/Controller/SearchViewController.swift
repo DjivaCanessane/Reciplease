@@ -22,15 +22,18 @@ class SearchViewController: UIViewController {
     
     /// Adds ingredient from ingredientTextField to ingredientsTextView
     @IBAction func addIngredient(_ sender: UIButton) {
+
         // Unwrap ingredientTextField text, else show an error alert
         guard let ingredient = ingredientTextField.text else {
             return showErrorEmptyOrNumberInIngredient()
         }
+
         // Check ingredient is not empty string, else show an error alert
         guard ingredient != "" else {
             return showErrorEmptyOrNumberInIngredient()
         }
-        // Check ingredient do not contains any numerical digi, else show an error alert
+
+        // Check ingredient do not contains any numerical digit, else show an error alert
         let numbersRange = ingredient.rangeOfCharacter(from: .decimalDigits)
         let hasNumbers = (numbersRange != nil)
         guard !hasNumbers else {
@@ -48,7 +51,19 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchRecipes(_ sender: UIButton) {
+        //Add the spinner view controller
+        let child = SpinnerViewController()
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+        
         recipeQueryNetworkManager.getRecipes(for: ingredients) { (result) in
+            //Remove the spinner view controller
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+            
             switch result {
             case .success(let displayableRecipesResult):
                 self.displayableRecipes = displayableRecipesResult
