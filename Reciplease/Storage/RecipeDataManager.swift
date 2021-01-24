@@ -36,7 +36,7 @@ class RecipeDataManager {
         recipeData.name = displayableRecipe.dishName
         recipeData.imageURL = displayableRecipe.imageURL
         recipeData.ingredients = displayableRecipe.ingredients
-        recipeData.duration = Int16(displayableRecipe.duration)
+        recipeData.duration = displayableRecipe.duration
         recipeData.recipeURL = displayableRecipe.recipeURL
         recipeData.yield = Int16(displayableRecipe.yield)
         recipeData.imageData = displayableRecipe.imageData

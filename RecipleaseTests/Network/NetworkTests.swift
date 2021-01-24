@@ -113,7 +113,7 @@ class NetworkTests: XCTestCase {
         XCTAssertEqual(displayabaleRecipe.recipeURL, "http://www.101cookbooks.com/archives/olive-oil-crackers-recipe.html")
         XCTAssertEqual(displayabaleRecipe.dishName, "Olive Oil Cracker recipes")
         XCTAssertEqual(displayabaleRecipe.yield, 4.0)
-        XCTAssertEqual(displayabaleRecipe.duration, Int(60.0))
+        XCTAssertEqual(displayabaleRecipe.duration, 60.0)
         XCTAssertEqual(displayabaleRecipe.ingredients, ingredientLines)
     }
 }
