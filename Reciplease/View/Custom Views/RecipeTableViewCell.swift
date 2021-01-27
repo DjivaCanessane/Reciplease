@@ -13,7 +13,7 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var ingredientsLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var yieldLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,17 +24,17 @@ class RecipeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func configure(with recipe: DisplayableRecipe) {
         let durationStr = recipe.duration == 0 ? "N/A" : "\(recipe.duration)"
         let yieldStr = recipe.yield == 0 ? "N/A" : "\(recipe.yield)"
         recipeImage.image = UIImage(data: recipe.imageData)
         recipeLabel.text = recipe.dishName
-        
+
         var ingredients: String {
             var ingredients = ""
             for ingredient in recipe.ingredients {
-                ingredients = ingredients + "\(ingredient), "
+                ingredients += "\(ingredient), "
             }
             return ingredients
         }

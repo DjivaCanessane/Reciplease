@@ -7,22 +7,30 @@
 
 import UIKit
 
-class RecipeTableViewController: UITableViewController {
+class RecipeTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingView: UIView!
+
     var displayableRecipes: [DisplayableRecipe] = []
     var isComingFromSeachVC: Bool = false
     let recipeDataManager = ServiceContainer.recipeDataManager
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadData()
     }
-    
+
     private func showEmptyMessage() {
         //Empty messages
         let networkErrorMessage = "No recipes found for those ingredients.\nPlease edit your ingredient and try again."
-        let coreDataEmptyMessage = "You have not any favorite recipes yet.\nTo add an favorite, pleace tap on the star button in the detailled recipe."
+        let coreDataEmptyMessage = "You have not any favorite recipes yet." +
+        "\nTo add an favorite, pleace tap on the star button in the detailled recipe."
         //Creation of empty message label
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        let label: UILabel = UILabel(
+            frame: CGRect(
+                x: 0, y: 0,
+                width: tableView.bounds.size.width,
+                height: tableView.bounds.size.height))
         label.numberOfLines = 0
         label.text = self.isComingFromSeachVC ? networkErrorMessage : coreDataEmptyMessage
         label.textColor = .black
@@ -32,25 +40,23 @@ class RecipeTableViewController: UITableViewController {
         self.tableView.separatorStyle = .none
         self.tableView.reloadData()
     }
-    
+
     private func loadData() {
         //if isComingFromSeachVC = false, then fetch favorites recipesdata from CoreData
         if !isComingFromSeachVC {
-            //Add the spinner view controller
-            let child = SpinnerViewController()
-            addChild(child)
-            child.view.frame = view.frame
-            view.addSubview(child.view)
-            child.didMove(toParent: self)
-
             //Disable empty message
             self.tableView.backgroundView = nil
             self.tableView.separatorStyle = .singleLine
+
+            self.loadingView.isHidden = false
 
             //Fetch Data from CoreData
             let recipesData: [RecipeData] = recipeDataManager.all
             displayableRecipes = []
             for recipeData in recipesData {
+                var ingredients: [String]
+                guard let ingredientData = recipeData.ingredients else { return }
+                ingredients = (try? JSONDecoder().decode([String].self, from: ingredientData)) ??  []
                 let displayableRecipe = DisplayableRecipe(
                     imageData: recipeData.imageData ?? UIImage(named: "foodImage")!.pngData()!,
                     imageURL: recipeData.imageURL ?? "",
@@ -58,59 +64,56 @@ class RecipeTableViewController: UITableViewController {
                     dishName: recipeData.name ?? "",
                     yield: Double(recipeData.yield),
                     duration: recipeData.duration,
-                    ingredients: recipeData.ingredients ?? []
+                    ingredients: ingredients
                 )
                 displayableRecipes.append(displayableRecipe)
             }
-
-            //Remove the spinner view controller
-            child.willMove(toParent: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParent()
         }
+        self.loadingView.isHidden = true
 
         //show error when diplayableRecipes is empty
         guard !displayableRecipes.isEmpty else { return showEmptyMessage() }
         self.tableView.reloadData()
     }
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(160)
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return displayableRecipes.count
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let recipeCell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let recipeCell = tableView.dequeueReusableCell(
+                withIdentifier: "recipeCell",
+                for: indexPath) as? RecipeTableViewCell else {
             return UITableViewCell()
         }
         let displayableRecipe: DisplayableRecipe = displayableRecipes[indexPath.row]
         recipeCell.configure(with: displayableRecipe)
         return recipeCell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         performSegue(withIdentifier: "detailledRecipe", sender: cell)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? RecipeTableViewCell {
-            let i = self.tableView.indexPath(for: cell)!.row
+            let index = self.tableView.indexPath(for: cell)!.row
             if segue.identifier == "detailledRecipe" {
-                let vc = segue.destination as! DetailledRecipeViewController
-                vc.displayableRecipe = displayableRecipes[i]
+                //swiftlint:disable:next force_cast
+                let viewController = segue.destination as! DetailledRecipeViewController
+                viewController.displayableRecipe = displayableRecipes[index]
             }
         }
     }
-    
-    
 }

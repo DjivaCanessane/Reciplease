@@ -12,7 +12,7 @@ class RecipeDataManager {
     // MARK: - Properties
 
     private let context: ContextProvider
-    
+
     ///Returns an array containing every RecipeData object saved in CoreData
     var all: [RecipeData] {
         let request: NSFetchRequest<RecipeData> = RecipeData.fetchRequest()
@@ -27,19 +27,26 @@ class RecipeDataManager {
     init(contextProvider: ContextProvider) {
         self.context = contextProvider
     }
-    
+
     // MARK: - Manage Task Entity
-    
+
     ///Creates and saves a RecipeData entity from a DisplayableRecipe object in CoreData
     func save(_ displayableRecipe: DisplayableRecipe) throws {
         let recipeData = RecipeData(context: context.managedObjectContext)
         recipeData.name = displayableRecipe.dishName
         recipeData.imageURL = displayableRecipe.imageURL
-        recipeData.ingredients = displayableRecipe.ingredients
         recipeData.duration = displayableRecipe.duration
         recipeData.recipeURL = displayableRecipe.recipeURL
         recipeData.yield = Int16(displayableRecipe.yield)
         recipeData.imageData = displayableRecipe.imageData
+
+        /*
+         Here we force try displayableRecipe.ingredients encoding into binaryData,
+         because neither recipeData.ingredient is optional in CoreData,
+         and displayableRecipe.ingredients is not an optional
+        */
+        //swiftlint:disable:next force_try
+        recipeData.ingredients = try! JSONEncoder().encode(displayableRecipe.ingredients)
         do { try context.save() } catch { throw CoreDataError.saveError }
     }
 
@@ -63,15 +70,15 @@ class RecipeDataManager {
         //Create a request to find RecipeData containing the given URL
         let request: NSFetchRequest<RecipeData> = RecipeData.fetchRequest()
         request.predicate = NSPredicate(format: "recipeURL == %@", url)
-        
+
         //Prevent from getting Faults items in request instead of nothing
         request.returnsObjectsAsFaults = false
-        
+
         //Trying to get those recipes
         var recipeDatas: [RecipeData] = []
         do { recipeDatas = try context.fetch(request)
         } catch { throw CoreDataError.fetchError }
-        
+
         //Return wheather or no the recipe is favorite
         return recipeDatas.isEmpty ? false : true
     }

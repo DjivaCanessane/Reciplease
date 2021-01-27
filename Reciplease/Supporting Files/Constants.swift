@@ -8,6 +8,7 @@
 import Foundation
 
 struct Constants {
+    //swiftlint:disable:next type_name
     struct Id {
         static let edamamId: String = "6b30bcd2"
     }

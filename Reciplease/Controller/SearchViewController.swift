@@ -9,17 +9,18 @@ import UIKit
 
 class SearchViewController: UIViewController {
     // MARK: - PROPERTIES
-    
+
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var ingredientsTextView: UITextView!
     let alertManager = ServiceContainer.alertManager
     let recipeQueryNetworkManager = ServiceContainer.recipeQueryNetworkManager
-    
+
     var ingredients: [String] = []
     var displayableRecipes: [DisplayableRecipe] = []
-    
+
     // MARK: - FUNCTIONS
-    
+
     /// Adds ingredient from ingredientTextField to ingredientsTextView
     @IBAction func addIngredient(_ sender: UIButton) {
 
@@ -40,35 +41,27 @@ class SearchViewController: UIViewController {
             return showErrorEmptyOrNumberInIngredient()
         }
         ingredients.append(ingredient)
-        ingredientsTextView.text = ingredientsTextView.text + "- \(ingredient.capitalized)\n"
+        ingredientsTextView.text += "- \(ingredient.capitalized)\n"
         ingredientTextField.text = nil
-        
+
     }
-    
+
     @IBAction func clearIngredients(_ sender: UIButton) {
         ingredients = []
         ingredientsTextView.text = ""
     }
-    
+
     @IBAction func searchRecipes(_ sender: UIButton) {
-        //Add the spinner view controller
-        let child = SpinnerViewController()
-        addChild(child)
-        child.view.frame = view.frame
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-        
+        loadingView.isHidden = false
+
         recipeQueryNetworkManager.getRecipes(for: ingredients) { (result) in
-            //Remove the spinner view controller
-            child.willMove(toParent: nil)
-            child.view.removeFromSuperview()
-            child.removeFromParent()
-            
+            self.loadingView.isHidden = true
+
             switch result {
             case .success(let displayableRecipesResult):
                 self.displayableRecipes = displayableRecipesResult
                 self.performSegue(withIdentifier: "segueToNetworkResult", sender: nil)
-                
+
             case .failure(let error):
                 return self.alertManager.showErrorAlert(
                     title: "Network error",
@@ -78,7 +71,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
+
     private func showErrorEmptyOrNumberInIngredient() {
         ingredientTextField.text = nil
         return alertManager.showErrorAlert(
@@ -87,7 +80,7 @@ class SearchViewController: UIViewController {
             viewController: self
         )
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToNetworkResult" {
             guard let successVC = segue.destination as? RecipeTableViewController else {

@@ -10,7 +10,7 @@ import CoreData
 
 protocol ContextProvider {
     var managedObjectContext: NSManagedObjectContext { get }
-    
+
     func fetch<T>(_ request: NSFetchRequest<T>) throws -> [T]
     func save() throws
     func delete(_ object: NSManagedObject)

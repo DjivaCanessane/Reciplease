@@ -10,6 +10,7 @@ import Foundation
 enum CoreDataError: Error {
     case fetchError
     case saveError
+    case decodeError
 }
 
 extension CoreDataError: LocalizedError {
@@ -19,6 +20,8 @@ extension CoreDataError: LocalizedError {
             return "Can not fetch data."
         case .saveError:
             return "Can not save."
+        case .decodeError:
+            return "Can not decode ingredients."
         }
     }
 }

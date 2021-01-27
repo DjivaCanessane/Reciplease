@@ -8,7 +8,9 @@ import Foundation
 
 // MARK: - Recipes
 struct Recipes: Codable {
+    //swiftlint:disable:next identifier_name
     let q: String
+    //swiftlint:disable:next identifier_name
     let from, to: Int
     let more: Bool
     let count: Int

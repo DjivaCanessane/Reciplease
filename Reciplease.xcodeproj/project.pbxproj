@@ -29,7 +29,6 @@
 		18A748A125A7675900DC2604 /* FakeNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A748A025A7675900DC2604 /* FakeNetworkRequest.swift */; };
 		18A748BC25B2200800DC2604 /* Recipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 18A748BB25B2200700DC2604 /* Recipe.json */; };
 		18A748C025B223D300DC2604 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A748BF25B223D300DC2604 /* NetworkTests.swift */; };
-		18A748D225BDEE4800DC2604 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A748D125BDEE4700DC2604 /* SpinnerViewController.swift */; };
 		18B143BF258C054F0020E901 /* ContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B143BE258C054F0020E901 /* ContextProvider.swift */; };
 		18B143C5258C0A6B0020E901 /* RecipeManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B143C4258C0A6B0020E901 /* RecipeManagedObjectContext.swift */; };
 		18B143CF258C288C0020E901 /* MockContextProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B143CE258C288C0020E901 /* MockContextProviderStub.swift */; };
@@ -85,7 +84,6 @@
 		18A748A025A7675900DC2604 /* FakeNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkRequest.swift; sourceTree = "<group>"; };
 		18A748BB25B2200700DC2604 /* Recipe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipe.json; sourceTree = "<group>"; };
 		18A748BF25B223D300DC2604 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
-		18A748D125BDEE4700DC2604 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		18B143BE258C054F0020E901 /* ContextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextProvider.swift; sourceTree = "<group>"; };
 		18B143C4258C0A6B0020E901 /* RecipeManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManagedObjectContext.swift; sourceTree = "<group>"; };
 		18B143CE258C288C0020E901 /* MockContextProviderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContextProviderStub.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				1844D8A0256427000045B68D /* AlertManager.swift */,
 				18CC0BA725703836003DD6F0 /* RecipeTableViewController.swift */,
 				18CC0BC42576D193003DD6F0 /* DetailledRecipeViewController.swift */,
-				18A748D125BDEE4700DC2604 /* SpinnerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -364,6 +361,7 @@
 				18A5D0262563099D00A3B639 /* Frameworks */,
 				18A5D0272563099D00A3B639 /* Resources */,
 				9741E1756AF1A7A9013ECE87 /* [CP] Embed Pods Frameworks */,
+				184961BD25BF402200E50F6C /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -434,6 +432,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		184961BD25BF402200E50F6C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		3240EDC10979597F02ED2C52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,7 +513,6 @@
 				18DD6C57256340700093ECAC /* SearchViewController.swift in Sources */,
 				18A5D0372563099D00A3B639 /* Reciplease.xcdatamodeld in Sources */,
 				18CC0BAD25704145003DD6F0 /* RecipeTableViewCell.swift in Sources */,
-				18A748D225BDEE4800DC2604 /* SpinnerViewController.swift in Sources */,
 				18A5D02D2563099D00A3B639 /* AppDelegate.swift in Sources */,
 				18CC0BEB25780663003DD6F0 /* RecipeData.swift in Sources */,
 				1844D896256424BA0045B68D /* RecipesQueryNetworkManager.swift in Sources */,

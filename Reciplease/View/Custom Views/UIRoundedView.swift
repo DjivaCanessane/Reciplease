@@ -12,7 +12,7 @@ class UIRoundedView: UIView {
         super.awakeFromNib()
         addCornerRadius()
     }
-    
+
     private func addCornerRadius() {
         layer.cornerRadius = 4
     }

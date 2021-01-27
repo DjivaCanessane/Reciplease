@@ -11,7 +11,7 @@ import Foundation
 struct FakeRecipeNetworkRequest: NetworkRequest {
     var data: Data?
     var error: Error?
-    
+
     func get(_ url: URL, callback: @escaping (Result<Data, NetworkError>) -> Void) {
         guard error == nil else { return callback(.failure(.hasError)) }
         guard let data = data else { return callback(.failure(.emptyData)) }
@@ -27,7 +27,7 @@ class FakeImageNetworkRequestWillFail: NetworkRequest {
     }
     var error: Error?
     var hasReturnRecipeHit = false
-    
+
     func get(_ url: URL, callback: @escaping (Result<Data, NetworkError>) -> Void) {
         guard error == nil else { return callback(.failure(.hasError)) }
         guard let recipeData = recipeData else { return callback(.failure(.emptyData)) }
@@ -37,7 +37,7 @@ class FakeImageNetworkRequestWillFail: NetworkRequest {
             hasReturnRecipeHit = true
             callback(.success(recipeData))
         }
-       
+
     }
 }
 
@@ -50,7 +50,7 @@ class FakeImageNetworkRequestWillSucceed: NetworkRequest {
     let imageData = "testImageData".data(using: .utf8)!
     var error: Error?
     var hasReturnRecipeHit = false
-    
+
     func get(_ url: URL, callback: @escaping (Result<Data, NetworkError>) -> Void) {
         guard error == nil else { return callback(.failure(.hasError)) }
         guard let recipeData = recipeData else { return callback(.failure(.emptyData)) }
@@ -60,6 +60,6 @@ class FakeImageNetworkRequestWillSucceed: NetworkRequest {
             hasReturnRecipeHit = true
             callback(.success(recipeData))
         }
-       
+
     }
 }

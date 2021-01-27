@@ -12,7 +12,7 @@ class NetworkTests: XCTestCase {
     var recipeQueryNetworkManager: RecipesQueryNetworkManager!
     var networkRequest: NetworkRequest!
     var ingredients = ["Rice", "Oil"]
-    
+
     func setUpReal() {
         networkRequest = AlamofireNetworkRequest()
         recipeQueryNetworkManager = RecipesQueryNetworkManager(networkRequest: networkRequest)
@@ -23,25 +23,25 @@ class NetworkTests: XCTestCase {
         recipeQueryNetworkManager = nil
         networkRequest = nil
     }
-    
-    //MARK: - Test Errors thrown in Failures
+
+    // MARK: - Test Errors thrown in Failures
     func testGetRecipes_WhenGivingNoIngredient_ShouldReturnFailureWithNoIngredientNetworkError() {
         setUpReal()
         recipeQueryNetworkManager.getRecipes(for: []) { (result) in
             switch result {
-            case .success(_): XCTFail()
+            case .success: XCTFail("test failed")
             case .failure(let error): XCTAssertEqual(error, NetworkError.noIngredients)
             }
         }
     }
-    
+
     func testGetRecipes_WhenGivingNonDecodableRecipe_ShouldReturnFailureWithCanNotDecodeNetworkError() {
         let data = Data(base64Encoded: "test")
         networkRequest = FakeRecipeNetworkRequest(data: data, error: nil)
         recipeQueryNetworkManager = RecipesQueryNetworkManager(networkRequest: networkRequest)
         recipeQueryNetworkManager.getRecipes(for: ingredients) { (result) in
             switch result {
-            case .success(_): XCTFail()
+            case .success: XCTFail("test failed")
             case .failure(let error): XCTAssertEqual(error, NetworkError.decodingError)
             }
         }
@@ -54,7 +54,7 @@ class NetworkTests: XCTestCase {
         recipeQueryNetworkManager = RecipesQueryNetworkManager(networkRequest: networkRequest)
         recipeQueryNetworkManager.getRecipes(for: ingredients) { (result) in
             switch result {
-            case .success(_): XCTFail()
+            case .success: XCTFail("test failed")
             case .failure(let error): XCTAssertEqual(error, NetworkError.hasError)
             }
         }
@@ -65,12 +65,12 @@ class NetworkTests: XCTestCase {
         recipeQueryNetworkManager = RecipesQueryNetworkManager(networkRequest: networkRequest)
         recipeQueryNetworkManager.getRecipes(for: ingredients) { (result) in
             switch result {
-            case .success(_): XCTFail()
+            case .success: XCTFail("test failed")
             case .failure(let error): XCTAssertEqual(error, NetworkError.emptyData)
             }
         }
     }
-    
+
     func testGetImage_WhenDoNotReturnImageData_ShouldReturnFailureWithDefaultImageData() {
         let testImageData: Data = UIImage(named: "foodImage")!.pngData()!
         networkRequest = FakeImageNetworkRequestWillFail()
@@ -79,13 +79,13 @@ class NetworkTests: XCTestCase {
             switch result {
             case .success(let displayableRecipes):
                 let displayabaleRecipe = displayableRecipes.first!
-                self.tesDiplayableRecipe(displayabaleRecipe,testImageData: testImageData)
-            case .failure(_): XCTFail()
+                self.tesDiplayableRecipe(displayabaleRecipe, testImageData: testImageData)
+            case .failure: XCTFail("test failed")
             }
         }
     }
-    
-    //MARK: - Test Success
+
+    // MARK: - Test Success
     func testGetRecipes_WhenRecipeResponseAndImageResponseAreCorrect_ShouldReturnSuccessWithDisplayableRecipe() {
         let testImageData: Data = "testImageData".data(using: .utf8)!
         networkRequest = FakeImageNetworkRequestWillSucceed()
@@ -94,8 +94,8 @@ class NetworkTests: XCTestCase {
             switch result {
             case .success(let displayableRecipes):
                 let displayabaleRecipe = displayableRecipes.first!
-                self.tesDiplayableRecipe(displayabaleRecipe,testImageData: testImageData)
-            case .failure(_): XCTFail()
+                self.tesDiplayableRecipe(displayabaleRecipe, testImageData: testImageData)
+            case .failure: XCTFail("test failed")
             }
         }
     }
@@ -109,8 +109,12 @@ class NetworkTests: XCTestCase {
             "1/3 cup extra virgin olive oil"
         ]
         XCTAssertEqual(displayabaleRecipe.imageData, testImageData)
-        XCTAssertEqual(displayabaleRecipe.imageURL, "https://www.edamam.com/web-img/d35/d35614d9aac3d80c44f4583e6f2c59cb")
-        XCTAssertEqual(displayabaleRecipe.recipeURL, "http://www.101cookbooks.com/archives/olive-oil-crackers-recipe.html")
+        XCTAssertEqual(
+            displayabaleRecipe.imageURL,
+            "https://www.edamam.com/web-img/d35/d35614d9aac3d80c44f4583e6f2c59cb")
+        XCTAssertEqual(
+            displayabaleRecipe.recipeURL,
+            "http://www.101cookbooks.com/archives/olive-oil-crackers-recipe.html")
         XCTAssertEqual(displayabaleRecipe.dishName, "Olive Oil Cracker recipes")
         XCTAssertEqual(displayabaleRecipe.yield, 4.0)
         XCTAssertEqual(displayabaleRecipe.duration, 60.0)

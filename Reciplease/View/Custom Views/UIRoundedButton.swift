@@ -12,7 +12,7 @@ class UIRoundedButton: UIButton {
         super.awakeFromNib()
         addCornerRadius()
     }
-    
+
     private func addCornerRadius() {
         layer.cornerRadius = 7
     }

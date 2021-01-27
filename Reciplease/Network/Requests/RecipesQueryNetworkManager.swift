@@ -15,14 +15,15 @@ class RecipesQueryNetworkManager {
         self.alamoFireNetworkRequest = networkRequest
     }
 
-    func getRecipes(for ingredients: [String], callback: @escaping (Result<[DisplayableRecipe], NetworkError>) -> Void) {
+    func getRecipes(
+        for ingredients: [String],
+        callback: @escaping (Result<[DisplayableRecipe], NetworkError>) -> Void) {
         guard ingredients != [] else { return callback(.failure(.noIngredients)) }
         let queryUrl: URL = generateQueryURL(for: ingredients)
         alamoFireNetworkRequest.get(queryUrl) { (result: Result<Data, NetworkError>) in
             switch result {
             case .success(let data):
                 guard let recipes = try? JSONDecoder().decode(Recipes.self, from: data) else {
-                    ///TODO: test Error
                     return callback(.failure(.decodingError))
                 }
                 let fetchGroup = DispatchGroup()
@@ -31,10 +32,8 @@ class RecipesQueryNetworkManager {
                     self.getImage(for: hit, fetchGroup: fetchGroup) { displayableRecipes.append($0) }
                 }
                 fetchGroup.notify(queue: .main) {
-                    ////TODO: test sucess
                     callback(.success(displayableRecipes))
                 }
-            ///TODO: Test failure
             case .failure(let error):
                 callback(.failure(error))
             }
@@ -60,8 +59,7 @@ class RecipesQueryNetworkManager {
             case .success(let data):
                 displayableRecipe.imageData = data
                 callback(displayableRecipe)
-            ///TODO: test failure
-            case .failure(_):
+            case .failure:
                 callback(displayableRecipe)
             }
             fetchGroup.leave()
@@ -75,7 +73,7 @@ class RecipesQueryNetworkManager {
             Constants.Id.edamamId,
             Constants.Keys.edamamKey
         )
-        
+
         for ingredient in ingredients {
             ingredientsStrList = "\(ingredientsStrList)+\(ingredient)"
         }

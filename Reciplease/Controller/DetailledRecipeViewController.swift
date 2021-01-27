@@ -19,12 +19,12 @@ class DetailledRecipeViewController: UIViewController {
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeIngredients: UITextView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRecipeDataToUI()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setFavoriteBarButtonItemImage()
@@ -41,19 +41,19 @@ class DetailledRecipeViewController: UIViewController {
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true)
     }
-    
+
     @IBAction func addOrRemoveRecipeFromFavorite(_ sender: UIBarButtonItem) {
         return sender.image == UIImage(systemName: "star.fill") ?
             removeRecipeFromFavorite() : addRecipeToFavorite()
     }
-    
+
     private func fetchRecipeDataToUI() {
         recipeImage.image = UIImage(data: displayableRecipe.imageData)
-        recipeDuration.text = "\(displayableRecipe.duration)"
-        recipeYield.text = "\(displayableRecipe.yield)"
+        recipeDuration.text = displayableRecipe.duration == 0 ? "N/A" : "\(displayableRecipe.duration)"
+        recipeYield.text = displayableRecipe.yield == 0 ? "N/A" : "\(displayableRecipe.yield)"
         recipeName.text = displayableRecipe.dishName
         displayableRecipe.ingredients.forEach { (ingredient) in
-            recipeIngredients.text = recipeIngredients.text + "\n - \(ingredient)"
+            recipeIngredients.text += "\n - \(ingredient)"
         }
     }
 
@@ -69,7 +69,7 @@ class DetailledRecipeViewController: UIViewController {
                 message: "Can not retrieve data from Core Data.",
                 viewController: self
             )
-            
+
         }
     }
 
@@ -100,5 +100,5 @@ class DetailledRecipeViewController: UIViewController {
         }
         favoriteButton.image = UIImage(systemName: "star")
     }
-    
+
 }
